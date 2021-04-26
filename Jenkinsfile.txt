@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone sources') {
             steps {
-                git branch: 'main', url: "https://github.com/Liner246/web.git"
+                checkout scm
             }
         }
         stage('Build') {
