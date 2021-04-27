@@ -21,4 +21,15 @@ pipeline {
             }
         }
     }
+	post{
+        always{
+            echo "Job execution complete."
+        }
+        success{
+            echo "All is good."
+        }
+        unsuccessful{
+            echo "Job execution status is failed, please check error logs"
+        }
+	}
 }
