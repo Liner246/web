@@ -27,7 +27,7 @@ pipeline {
         }
         success{
             echo "All is good."
-			archiveArtifacts artifacts: '/usr/share/nginx/html/index.html'
+			archiveArtifacts artifacts: '*index.html'
 		}
         unsuccessful{
             echo "Job execution status is failed, please check error logs"
