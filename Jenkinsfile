@@ -27,9 +27,11 @@ pipeline {
         }
         success{
             echo "All is good."
+			mail to: vitalii.petrenko@dataart.com, subject: 'The Pipeline ok :)'
         }
         unsuccessful{
             echo "Job execution status is failed, please check error logs"
+		
         }
 	}
 }
