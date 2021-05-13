@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'sudo docker stop web || true && sudo docker rm web || true'
-				sh 'sudo docker run -it --rm -d -p 80:80 --name web nginx'
+				sh 'sudo docker run -it --rm -d -p 443:443 --name web nginx'
             }
         }
     }
