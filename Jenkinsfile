@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label 'Node-1'
+        any
     }
 
     stages {
@@ -10,11 +10,17 @@ pipeline {
             }
         }
         stage('Build') {
+		    agent {
+                label 'Node-1'
+            }
             steps {
                 sh 'sudo docker build -t nginx .'
             }
         }
         stage('Deploy') {
+		    agent {
+                label 'Node-1'
+            }
             steps {
                 sh 'sudo docker stop web || true && sudo docker rm web || true'
 				sh 'sudo docker run -it --rm -d -p 443:443 --name web nginx'
