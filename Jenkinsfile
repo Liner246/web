@@ -20,6 +20,15 @@ pipeline {
 				sh 'sudo docker run -it --rm -d -p 443:443 --name web nginx'
             }
         }
+		stage('Test Nginx configuration') {
+            agent {
+                docker { image 'nginx' }
+            }
+            steps {
+                sh 'nginx -t 2>> nginx_test.txt'
+				
+            }
+        }
     }
 	post{
         always{
